@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 
 namespace chat.Models
@@ -14,8 +15,8 @@ namespace chat.Models
     [Table("users")]
     public class User
     {
-        [Column("id"), Key, Required]
-        public int Id { get; set; }
+        [Column("id"), Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
         [Column("user_last_name")]
         public string UserLastName { get; set; }
         [Column("user_first_name")]

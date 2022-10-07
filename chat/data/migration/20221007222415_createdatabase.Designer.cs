@@ -9,10 +9,10 @@ using chat.Context;
 
 #nullable disable
 
-namespace chat.data.migration
+namespace ApiChat.data.migration
 {
     [DbContext(typeof(ChatDbContext))]
-    [Migration("20220924194513_createdatabase")]
+    [Migration("20221007222415_createdatabase")]
     partial class createdatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,12 +26,10 @@ namespace chat.data.migration
 
             modelBuilder.Entity("chat.Models.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("UserAdress")
                         .IsRequired()

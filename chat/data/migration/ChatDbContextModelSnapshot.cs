@@ -8,7 +8,7 @@ using chat.Context;
 
 #nullable disable
 
-namespace chat.data.migration
+namespace ApiChat.data.migration
 {
     [DbContext(typeof(ChatDbContext))]
     partial class ChatDbContextModelSnapshot : ModelSnapshot
@@ -24,12 +24,10 @@ namespace chat.data.migration
 
             modelBuilder.Entity("chat.Models.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("uniqueidentifier")
                         .HasColumnName("id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("UserAdress")
                         .IsRequired()

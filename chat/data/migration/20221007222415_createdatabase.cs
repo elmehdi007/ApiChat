@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace chat.data.migration
+namespace ApiChat.data.migration
 {
     public partial class createdatabase : Migration
     {
@@ -13,8 +13,7 @@ namespace chat.data.migration
                 name: "users",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     user_last_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     user_first_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     user_cnx_status = table.Column<bool>(type: "bit", nullable: false),

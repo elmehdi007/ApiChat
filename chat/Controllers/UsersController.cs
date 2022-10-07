@@ -52,8 +52,9 @@ namespace chat.Controllers
             //Login login = new Login() ;login.email = "email"; login.password = "email";
             User user = await _chatDbContext.Users.SingleOrDefaultAsync(c => c.UserEmail == login.email);
             //User user = await _userManager.FindByEmailAsync(email);
-            /*2 user for tests
-            var user_ = new User();
+
+            //2 user for tests
+            /* var user_ = new User();
             user_.UserCnxStatus = false ;
             user_.UserLastName = "UserLastName";
             user_.UserFirstName = "UserFirstName";
@@ -77,8 +78,7 @@ namespace chat.Controllers
             user_2.UserImage = "/user/user/i2.png";
             user_2.UserBirthDate = new DateTime();
             await _chatDbContext.Users.AddAsync(user_2);
-            await _chatDbContext.SaveChangesAsync();
-            */
+            await _chatDbContext.SaveChangesAsync();*/
 
             if (user == null) return NotFound();
 
