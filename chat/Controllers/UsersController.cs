@@ -47,9 +47,9 @@ namespace chat.Controllers
         [HttpPost("login")]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> login ([FromBody] Login login ) 
+        public async Task<IActionResult> login (Login login ) 
         {
-            
+            //Login login = new Login() ;login.email = "email"; login.password = "email";
             User user = await _chatDbContext.Users.SingleOrDefaultAsync(c => c.UserEmail == login.email);
             //User user = await _userManager.FindByEmailAsync(email);
             /*2 user for tests
